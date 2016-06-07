@@ -7,18 +7,16 @@ TextView垂直翻页效果
 <img src="/1.gif" style="width: 30%;">
 
 #### XML
- 
-  <com.ydw.flippertextview.FlipperTextView
-        android:id="@+id/flipper"
-        android:layout_width="fill_parent"
-        android:layout_height="40dip"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/finance_prom_icon_iv"
-        android:background="@android:color/white"
-        android:gravity="center">
+ <com.ydw.flippertextview.FlipperTextView
+			android:id="@+id/flipper"
+			android:layout_width="fill_parent"
+			android:layout_height="40dip"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="10dp"
+			android:layout_toRightOf="@+id/finance_prom_icon_iv"
+			android:background="@android:color/white"
+			android:gravity="center">
 
- 
 
 
 License
