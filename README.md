@@ -25,7 +25,7 @@ TextView垂直翻页效果
 	mFlipper.startFlipping();
 	
 ####
-####
+#####
 License
 
 Copyright (C) 2016 401610239@qq.com

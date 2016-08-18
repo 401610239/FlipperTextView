@@ -24,6 +24,7 @@ import java.util.ArrayList;
  * Created by yaodawei on 2016/5/26.
  */
 public class FlipperTextView extends TextSwitcher {
+    
     private ArrayList<String> mData;
     private int currentPosition = 0;
     private static final String TAG = "ViewFlipper";
