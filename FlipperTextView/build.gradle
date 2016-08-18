@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
 
 android {
     compileSdkVersion 23
@@ -22,4 +25,54 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
+}
+
+group = 'com.ydw.flippertextview' // 这里需要和真实包名对应，不能随便填写
+version = '1.0.1' // 指定版本号
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs //通过from函数指定代码源，这里是默认代码源
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs //source指定了代码源
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+//这里dependsOn意为仅当generateJavadocs完成后才开始本task
+task generateJavaDocsJar(type: Jar, dependsOn: generateJavadocs) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+artifacts {
+    archives generateJavaDocsJar
+    archives generateSourcesJar
+}
+
+//需要在local.properties文件中取值
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    pkg {
+        repo = 'maven'
+        name = 'com.ydw.flippertextview'
+
+        version {
+            name = '1.0.1-tuts'
+            desc = "flippertextview"
+            //released = System.currentTimeMillis();
+            vcsTag = '1.0.1'
+        }
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/401610239/FlipperTextView.git'
+        websiteUrl = 'https://401610239.github.io'
+    }
+
+    configurations = ['archives']
 }
