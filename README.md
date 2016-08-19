@@ -6,6 +6,9 @@ TextView垂直翻页效果
 
 <img src="/1.gif" style="width: 30%;">
 
+#### 使用
+
+ compile 'com.ydw.flippertextview:FlipperTextView:1.0.1'
 
 #### Layout
 
