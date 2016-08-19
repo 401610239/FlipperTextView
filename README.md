@@ -24,16 +24,15 @@ TextView垂直翻页效果
         android:background="@android:color/white"
         android:gravity="center"/>
 #### java
-~~~java
+~~~~java
     ArrayList<String> mData =  new ArrayList<String>();
     FlipperTextView mFlipper; mFlipper = ((FlipperTextView) this.findViewById(R.id.flipper));
 	mFlipper.setData(mData);
 	mFlipper.setFlipInterval(3000);
-	mFlipper.startFlipping();~~~	
+	mFlipper.startFlipping();	
 	
-####
-#####
-License
+
+##### License
 
 Copyright (C) 2016 401610239@qq.com
 
